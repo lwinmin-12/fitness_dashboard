@@ -16,7 +16,7 @@ const classColumns: ColumnDef<ClassRow>[] = [
     header: "Class name",
     accessor: (r) => r.name,
     sortable: true,
-    width: 255,
+    width: 180,
     pinned: true,
     cell: (r) => (
       <div className="flex items-center gap-[11px] [&_strong]:text-[11px] [&_strong]:font-[550] [&_strong]:tracking-[-0.1px] [&_small]:block [&_small]:text-[#9da58e] [&_small]:text-[9px] [&_small]:mt-[6px] [&_small_>_span]:[margin:0_3px] max-[650px]:gap-[8px] max-[650px]:[&_strong]:text-[10px] max-[650px]:[&_small]:text-[8px]">
@@ -571,9 +571,9 @@ export function TimetableDashboard() {
             ))}
           </select>
           <details className="ml-auto relative [&_summary]:list-none [&_summary]:text-[10px] [&_summary]:min-h-[35px] [&_summary::-webkit-details-marker]:hidden max-[650px]:[&_summary]:text-[0] max-[650px]:[&_summary]:gap-[0] max-[650px]:[&_summary]:w-[32px] max-[650px]:[&_summary]:min-h-[32px] max-[650px]:[&_summary]:p-0 max-[650px]:ml-auto">
-            <summary className="button inline-flex items-center justify-center gap-[8px] min-h-[36px] [border:1px_solid_#dfe4d8] bg-[#fff] rounded-[6px] [padding:0_13px] text-[11px] font-medium whitespace-nowrap [&:hover]:bg-[#f0f4eb] [&:hover]:border-[#c4cfb7] [&.primary]:bg-[#345c43] [&.primary]:border-[#345c43] [&.primary]:text-[#fff] [&.primary:hover]:bg-[#264c34]">
+            <summary className="button inline-flex items-center justify-center gap-[8px] min-h-[36px] [border:1px_solid_#dfe4d8] bg-[#fff] rounded-[6px] [padding:0_13px] text-[11px] font-medium whitespace-nowrap [&:hover]:bg-[#f0f4eb] [&:hover]:border-[#c4cfb7] [&.primary]:bg-[#345c43] [&.primary]:border-[#345c43] [&.primary]:text-[#fff] [&.primary:hover]:bg-[#264c34] max-[950px]:gap-[6px] max-[950px]:[padding:0_10px] max-[650px]:min-h-[32px] max-[650px]:[padding:0_9px] max-[650px]:gap-0 max-[650px]:[&_.btn-label]:hidden">
               <Icon name="columns" size={16} />
-              Columns
+              <span className="btn-label">Columns</span>
             </summary>
             <div className="absolute right-[0] top-[41px] z-[8] bg-[#fff] [border:1px_solid_var(--border)] shadow-[0_8px_30px_#29382e15] rounded-[8px] p-[9px] min-w-[150px] [&_label]:flex [&_label]:items-center [&_label]:gap-[9px] [&_label]:p-[9px] [&_label]:text-[11px] [&_input]:accent-[var(--green)]">
               {classColumns
@@ -797,7 +797,6 @@ export function TimetableDashboard() {
           </NewClassDialog>
         </div>
       )}
-      
     </StudioShell>
   );
 }

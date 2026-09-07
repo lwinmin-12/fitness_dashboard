@@ -7,6 +7,7 @@ import { Skeleton } from "./Skeleton";
 import { EmptyState } from "./EmptyState";
 import { ErrorState } from "./ErrorState";
 type ChildCache<T, C> = Map<string, { row: T; promise: Promise<readonly C[]> }>;
+
 function Detail<T, C>({
   row,
   rowId,
@@ -72,6 +73,7 @@ function Detail<T, C>({
     </div>
   );
 }
+
 export function DataTable<T, C = never>(props: DataTableProps<T, C>) {
   const state = useTableState(props);
   const id = useId();
@@ -80,12 +82,14 @@ export function DataTable<T, C = never>(props: DataTableProps<T, C>) {
   const [childCache] = useState<ChildCache<T, C>>(() => new Map());
   const offsets = new Map<string, number>();
   let left = props.expansion ? 46 : 0;
+
   state.columns.forEach((c) => {
     if (c.pinned) {
       offsets.set(c.key, left);
       left += c.width ?? 180;
     }
   });
+  
   const styleFor = (key: string, width?: number): CSSProperties => ({
     width: width ?? 180,
     minWidth: width ?? 180,

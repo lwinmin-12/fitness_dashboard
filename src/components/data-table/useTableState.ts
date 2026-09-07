@@ -25,6 +25,7 @@ export function useTableState<T>(options: TableStateOptions<T>) {
   )
     ? requestedSort
     : null;
+
   const sorted = useMemo(
     () =>
       options.manualSorting
@@ -32,6 +33,7 @@ export function useTableState<T>(options: TableStateOptions<T>) {
         : sortRows(options.data, options.columns, sort),
     [options.data, options.columns, options.manualSorting, sort],
   );
+  
   const total = options.manualPagination
     ? Math.max(0, options.totalCount ?? options.data.length)
     : options.data.length;
